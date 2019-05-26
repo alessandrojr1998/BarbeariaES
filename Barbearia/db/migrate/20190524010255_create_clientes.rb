@@ -6,7 +6,7 @@ class CreateClientes < ActiveRecord::Migration[5.1]
       t.string :cpf
       t.integer :idade
       t.string :senha
-      t.increment :cliente_id
+      t.integer :cliente_id
 
       t.timestamps
     end
