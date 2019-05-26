@@ -8,5 +8,7 @@ O projeto se trata da criação de um sistema de gerenciamento para barbearia. O
 
 ## Alunos
 > Alessandro Júnior
+
 > Alvanir Júnior
+
 > Gabriel Castro
