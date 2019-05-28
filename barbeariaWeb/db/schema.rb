@@ -12,21 +12,19 @@
 
 ActiveRecord::Schema.define(version: 20190528030108) do
 
-  create_table "barbearia", id: false, force: :cascade do |t|
+  create_table "barbearia", force: :cascade do |t|
     t.string "nome"
     t.string "contato"
     t.integer "user_id"
-    t.integer "id"
     t.integer "endereco_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "enderecos", id: false, force: :cascade do |t|
+  create_table "enderecos", force: :cascade do |t|
     t.string "rua"
     t.string "bairro"
     t.integer "numero"
-    t.integer "id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
