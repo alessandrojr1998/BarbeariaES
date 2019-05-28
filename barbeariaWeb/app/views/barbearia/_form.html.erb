@@ -1,0 +1,42 @@
+<%= form_with(model: barbearium, local: true) do |form| %>
+  <% if barbearium.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(barbearium.errors.count, "error") %> prohibited this barbearium from being saved:</h2>
+
+      <ul>
+      <% barbearium.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nome %>
+    <%= form.text_field :nome, id: :barbearium_nome %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contato %>
+    <%= form.text_field :contato, id: :barbearium_contato %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.number_field :user_id, id: :barbearium_user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :id %>
+    <%= form.number_field :id, id: :barbearium_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :endereco_id %>
+    <%= form.number_field :endereco_id, id: :barbearium_endereco_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
