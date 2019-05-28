@@ -1,0 +1,2 @@
+class Barbearium < ApplicationRecord
+end

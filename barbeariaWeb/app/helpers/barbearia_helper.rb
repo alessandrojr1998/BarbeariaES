@@ -1,0 +1,2 @@
+module BarbeariaHelper
+end
