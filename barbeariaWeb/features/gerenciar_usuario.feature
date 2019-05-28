@@ -27,7 +27,7 @@ Feature: Gerenciar um usuario
 
   Scenario: Criar uma conta de usuario com a senha em branco
     Given Estou na pagina de novo usuario
-    When Eu crio uma conta com nome 'Jose', sobrenome 'Barbosa', cpf '7', senha em branco e contato '81953264253'
+    When Eu crio uma conta com nome 'Jose', sobrenome 'Barbosa', cpf '70254125412', senha em branco e contato '81953264253'
     And Clico em criar usuario
     Then Eu vejo que o usuario nao foi criado, pois a senha nao foi preenchida.
 
