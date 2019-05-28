@@ -60,7 +60,7 @@ end
 
 
 
-
+#Endereco
 
 
 
@@ -80,9 +80,41 @@ When("Clico em criar endereco") do
 end
 
 Then("Eu vejo uma tela com a mensagem de sucesso e os dados do endereco.") do
-  page.has_no_content?('Endereco was successfully created.')
+  page.has_content?('Endereco was successfully created.')
 end
 
+When("Eu crio um endereco com a rua em branco, bairro {string}, numero {string}") do |bairro, numero|
+  fill_in 'endereco[bairro]', :with => bairro
+  fill_in 'endereco[numero]', :with => numero
+end
+
+Then("Eu vejo que o endereco nao foi criado, pois a rua nao foi preenchida.") do
+  page.has_content?('Rua can'+'t be blank')
+end
+
+When("Eu crio um endereco com a rua {string}, bairro em branco, numero {string}") do |rua, numero|
+  fill_in 'endereco[rua]', :with => rua
+  fill_in 'endereco[numero]', :with => numero
+end
+
+Then("Eu vejo que o endereco nao foi criado, pois o bairro nao foi preenchido.") do
+  page.has_content?('Bairro can'+'t be blank')
+end
+
+When("Eu crio um endereco com a rua {string}, bairro {string}, numero em branco") do |rua, bairro|
+  fill_in 'endereco[rua]', :with => rua
+  fill_in 'endereco[bairro]', :with => bairro
+end
+
+Then("Eu vejo que o endereco nao foi criado, pois o numero nao foi preenchido.") do
+  page.has_content?('Numero can'+'t be blank')
+  page.has_content?('Numero is too short (minimum is 1 character)')
+end
+
+
+
+
+#Barbearia
 
 Given("Estou na pagina de nova barbearia") do
   visit '/barbearia/new'
@@ -101,6 +133,16 @@ When("Clico em criar barbearia") do
 end
 
 Then("Eu vejo uma tela com a mensagem de sucesso e os dados da barbearia.") do
-  page.has_no_content?('Barbearium was successfully created.')
+  page.has_content?('Barbearium was successfully created.')
 end
 
+When("Eu crio uma barbearia com nome em branco, contato {string}, usuario {string} e endereco {string}") do |contato, user_id, endereco_id|
+  fill_in 'barbearium[contato]', :with => contato
+  fill_in 'barbearium[user_id]', :with => user_id
+  fill_in 'barbearium[endereco_id]', :with => endereco_id
+end
+
+Then("Eu vejo que a barberia nao foi criada, pois o nome nao foi preenchido.") do
+  page.has_content?('Nome can'+'t be blank')
+  page.has_content?('Nome is too short (minimum is 3 characters)')
+end
