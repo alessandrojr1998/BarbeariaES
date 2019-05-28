@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20190528030108) do
     t.integer "endereco_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["endereco_id"], name: "index_barbearia_on_endereco_id"
   end
 
   create_table "enderecos", force: :cascade do |t|
