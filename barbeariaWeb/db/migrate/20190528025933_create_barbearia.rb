@@ -1,6 +1,6 @@
 class CreateBarbearia < ActiveRecord::Migration[5.1]
   def change
-    create_table :barbearia do |t|
+    create_table :barbearia,:id => false do |t|
       t.string :nome
       t.string :contato
       t.integer :user_id
