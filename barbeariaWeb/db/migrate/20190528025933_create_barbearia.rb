@@ -4,7 +4,7 @@ class CreateBarbearia < ActiveRecord::Migration[5.1]
       t.string :nome
       t.string :contato
       t.integer :user_id
-      t.integer :id, primary_key:true
+      t.integer :id, primary_key: true
       t.integer :endereco_id
 
       t.timestamps
