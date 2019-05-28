@@ -27,11 +27,10 @@ Given("Estou na pagina de novo endereco") do
   expect(page).to have_current_path('/enderecos/new')
 end
 
-When("Eu crio um endereco com {string},{string},{string} e {string}") do |rua, bairro, numero, id|
+When("Eu crio um endereco com {string},{string} e {string}") do |rua, bairro, numero|
   fill_in 'endereco[rua]', :with => rua
   fill_in 'endereco[bairro]', :with => bairro
   fill_in 'endereco[numero]', :with => numero
-  fill_in 'endereco[id]', :with => id
 end
 
 When("Clico em criar endereco") do
