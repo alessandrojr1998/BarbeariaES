@@ -42,3 +42,23 @@ Then("Eu vejo uma tela com a mensagem de sucesso e os dados do endereco.") do
 end
 
 
+Given("Estou na pagina de nova barbearia") do
+  visit '/barbearia/new'
+  expect(page).to have_current_path('/barbearia/new')
+end
+
+When("Eu crio uma barbearia com {string},{string}, {string} e {string}") do |nome, contato, user_id, endereco_id|
+  fill_in 'barbearium[nome]', :with => nome
+  fill_in 'barbearium[contato]', :with => contato
+  fill_in 'barbearium[user_id]', :with => user_id
+  fill_in 'barbearium[endereco_id]', :with => endereco_id
+end
+
+When("Clico em criar barbearia") do
+  click_button 'Create Barbearium'
+end
+
+Then("Eu vejo uma tela com a mensagem de sucesso e os dados da barbearia.") do
+  page.has_no_content?('Barbearium was successfully created.')
+end
+
