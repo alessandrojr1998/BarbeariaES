@@ -16,8 +16,20 @@ When("Clico em criar usuario") do
 end
 
 Then("Eu vejo uma tela com a mensagem de sucesso e meus dados de novo usuario.") do
-  page.has_no_content?('Usuario was successfully created.')
+  page.has_content?('Usuario was successfully created.')
 end
+
+When("Eu crio uma conta com nome {string}, sobrenome {string}, cpf {string}, senha {string} e contato em branco") do |nome, sobrenome, cpf, senha|
+  fill_in 'usuario[nome]', :with => nome
+  fill_in 'usuario[sobrenome]', :with => sobrenome
+  fill_in 'usuario[cpf]', :with => cpf
+  fill_in 'usuario[senha]', :with => senha
+end
+
+Then("Eu vejo uma tela com a mensagem de sucesso e meus dados de novo usuario sem inserir o contato.") do
+  page.has_content?('Usuario was successfully created.')
+end
+
 
 When("Eu crio uma conta com nome vazio, sobrenome {string}, cpf {string}, senha {string} e contato {string}") do |sobrenome, cpf, senha, contato|
   fill_in 'usuario[sobrenome]', :with => sobrenome
@@ -26,9 +38,27 @@ When("Eu crio uma conta com nome vazio, sobrenome {string}, cpf {string}, senha 
   fill_in 'usuario[contato]', :with => contato
 end
 
-Then("Eu vejo que o usuario não foi criado, pois o nome nao foi preenchido.") do
-  page.has_no_content?('Nome can'+'t be blank')
+Then("Eu vejo que o usuario nao foi criado, pois o nome nao foi preenchido.") do
+  page.has_content?('Nome can'+'t be blank')
 end
+
+Then("Eu vejo que o usuario nao foi criado, pois o cpf é muito curto.") do
+  page.has_content?('Cpf is too short (minimum is 11 characters)')
+end
+
+When("Eu crio uma conta com nome {string}, sobrenome {string}, cpf {string}, senha em branco e contato {string}") do |nome, sobrenome, cpf, contato|
+  fill_in 'usuario[nome]', :with => nome
+  fill_in 'usuario[sobrenome]', :with => sobrenome
+  fill_in 'usuario[cpf]', :with => cpf
+  fill_in 'usuario[contato]', :with => contato
+end
+
+Then("Eu vejo que o usuario nao foi criado, pois a senha nao foi preenchida.") do
+  page.has_content?('Senha can'+'t be blank')
+  page.has_content?('Senha is too short (minimum is 6 characters)')
+end
+
+
 
 
 
