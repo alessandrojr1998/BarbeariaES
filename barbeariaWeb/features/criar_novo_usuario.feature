@@ -5,4 +5,4 @@ Feature: Criar um novo usuario
     Given Estou na pagina de novo usuario
     When Eu crio uma conta com 'nome','sobrenome','cpf','senha' e 'contato'
     And Clico em criar usuario
-    Then Eu vejo uma tela com a mensagem de sucesso e meus dados de novo cliente.
+    Then Eu vejo uma tela com a mensagem de sucesso e meus dados de novo usuario.
