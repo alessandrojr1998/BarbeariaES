@@ -111,6 +111,24 @@ Then("Eu vejo que o endereco nao foi criado, pois o numero nao foi preenchido.")
   page.has_content?('Numero is too short (minimum is 1 character)')
 end
 
+Given("Estou na pagina de visualizacao do endereco de rua {string}, bairro {string}, numero {string}") do |rua, bairro, numero|
+  visit 'enderecos/new'
+  fill_in 'endereco[rua]', :with => rua
+  fill_in 'endereco[bairro]', :with => bairro
+  fill_in 'endereco[numero]', :with => numero
+  click_button 'Create Endereco'
+
+end
+
+When("Eu deleto o endereco") do
+  click_link 'Destroy'
+end
+
+Then("Eu vejo uma mensagem de sucesso na remocao") do
+  page.has_content?('Endereco was successfully destroyed.')
+end
+
+
 
 
 
