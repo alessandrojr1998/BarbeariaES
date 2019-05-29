@@ -12,8 +12,3 @@ Feature: Gerenciar uma barbearia
     When Eu crio uma barbearia com nome em branco, contato '81953426152', usuario '1' e endereco '1'
     And Clico em criar barbearia
     Then Eu vejo que a barberia nao foi criada, pois o nome nao foi preenchido.
-
-  Scenario: Remover uma barbearia
-    Given Estou na pagina de visualizacao do endereco de rua 'Jose Marques', bairro 'Magano', numero '93'
-    When Eu deleto o endereco
-    Then Eu vejo uma mensagem de sucesso na remocao
