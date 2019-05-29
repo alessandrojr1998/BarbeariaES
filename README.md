@@ -12,3 +12,11 @@ O projeto se trata da criação de um sistema de gerenciamento para barbearia. O
 > Alvanir Júnior
 
 > Gabriel Castro
+
+## Rotas para teste
+
+> localhost:3000/usuarios
+
+> localhost:3000/enderecos
+
+> localhost:3000/barbeiro
