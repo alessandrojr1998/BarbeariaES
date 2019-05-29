@@ -5,5 +5,5 @@ class Barbearium < ApplicationRecord
   #validates :id, presence: true, length: {minimum: 1}
   #validate :endereco_id, presence: true, length: {minimun: 1}
   belongs_to :endereco#, autosave => true, :validate => true
-  belongs_to :usuario
+
 end

@@ -4,4 +4,5 @@ class Usuario < ApplicationRecord
   validates :cpf, presence: true, length: {minimum: 11, maximum: 11}
   validates :contato, length: {maximum: 50}
   validates :senha, presence: true, length: {minimum: 6, maximum: 18}
+  has_many :barbearium
 end
