@@ -24,3 +24,8 @@ Feature: Gerenciar um endereco
     When Eu crio um endereco com a rua 'Joao Sampaio', bairro 'Bela Vista', numero em branco
     And Clico em criar endereco
     Then Eu vejo que o endereco nao foi criado, pois o numero nao foi preenchido.
+
+  Scenario: Remover um endereco
+    Given Estou na pagina de visualizacao do endereco de rua 'Jose Marques', bairro 'Magano', numero '93'
+    When Eu deleto o endereco
+    Then Eu vejo uma mensagem de sucesso na remocao
