@@ -26,4 +26,6 @@
 </p>
 
 <%= link_to 'Edit', edit_barbearium_path(@barbearium) %> |
-<%= link_to 'Back', barbearia_path %>
+<%= link_to 'Back', barbearia_path %> |
+<%= link_to 'Destroy', @barbearium, method: :delete, data: { confirm: 'Are you sure?' } %>
+
