@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20190611032619) do
+=======
+ActiveRecord::Schema.define(version: 20190610192703) do
+>>>>>>> Implementados os ultimos tres cenarios de barbearia e a feature e cinco cenarios de produto
 
   create_table "barbearia", force: :cascade do |t|
     t.string "nome"
@@ -39,11 +43,17 @@ ActiveRecord::Schema.define(version: 20190611032619) do
     t.integer "quantidade"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+<<<<<<< HEAD
     t.integer "barbearium_id"
     t.index ["barbearium_id"], name: "index_produtos_on_barbearium_id"
   end
 
   create_table "usuarios", force: :cascade do |t|
+=======
+  end
+
+  create_table "usuarios", primary_key: "id_usuario", force: :cascade do |t|
+>>>>>>> Implementados os ultimos tres cenarios de barbearia e a feature e cinco cenarios de produto
     t.string "nome"
     t.string "sobrenome"
     t.string "cpf"
