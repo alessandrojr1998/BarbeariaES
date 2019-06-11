@@ -9,19 +9,19 @@ Feature: Gerenciar um endereco
   Scenario: Criar um endereco com a rua em branco
     Given Estou na pagina de novo endereco
     When Eu crio um endereco com a rua '', bairro 'Bela Vista', numero '85'
-    Then Eu vejo que houve um erro na criacao
+    Then Eu vejo que houve um erro na criacao do 'endereco'
 
   Scenario: Criar um endereco com o bairro em branco
     Given Estou na pagina de novo endereco
     When Eu crio um endereco com a rua 'Joao Sampaio', bairro '', numero '85'
-    Then Eu vejo que houve um erro na criacao
+    Then Eu vejo que houve um erro na criacao do 'endereco'
 
   Scenario: Criar um endereco com o numero em branco
     Given Estou na pagina de novo endereco
     When Eu crio um endereco com a rua 'Joao Sampaio', bairro 'Bela Vista', numero ''
-    Then Eu vejo que houve um erro na criacao
+    Then Eu vejo que houve um erro na criacao do 'endereco'
 
   Scenario: Remover um endereco
     Given Estou na pagina de visualizacao do endereco de rua 'Jose Marques', bairro 'Magano', numero '93'
-    When Eu deleto o endereco
-    Then Eu vejo uma mensagem de sucesso na remocao
+    When Eu deleto o 'endereco'
+    Then Eu vejo uma mensagem de sucesso na remocao do 'Endereco'

@@ -8,5 +8,20 @@ Feature: Gerenciar uma barbearia
 
   Scenario: Criar uma barbearia com nome em branco
     Given Estou na pagina de nova barbearia
-    When Eu crio uma barbearia com nome em branco, contato '81953426152', usuario '1' e endereco '1'
-    Then Eu vejo que a barberia nao foi criada, pois o nome nao foi preenchido.
+    When Eu crio uma barbearia com nome '', contato '81953426152', usuario '1' e endereco '1'
+    Then Eu vejo que houve um erro na criacao do 'barbearia'
+
+  Scenario: Criar uma barbearia com contato em branco
+    Given Estou na pagina de nova barbearia
+    When Eu crio uma barbearia com nome 'Joca Juqueira', contato '', usuario '1' e endereco '1'
+    Then Eu vejo que houve um erro na criacao do 'barbearia'
+
+  Scenario: Criar uma barbearia com usuario em branco
+    Given Estou na pagina de nova barbearia
+    When Eu crio uma barbearia com nome 'Jeca Tatu', contato '87956241258', usuario '' e endereco '1'
+    Then Eu vejo que houve um erro na criacao do 'barbearia'
+
+  Scenario: Criar uma barbearia com endereco em branco
+    Given Estou na pagina de nova barbearia
+    When Eu crio uma barbearia com nome 'Dalila Dav', contato '87981523569', usuario '1' e endereco ''
+    Then Eu vejo que houve um erro na criacao do 'barbearia'
