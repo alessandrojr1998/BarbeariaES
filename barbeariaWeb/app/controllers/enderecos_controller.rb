@@ -69,6 +69,6 @@ class EnderecosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def endereco_params
-      params.require(:endereco).permit(:rua, :bairro, :numero, :id)
+      params.require(:endereco).permit(:rua, :bairro, :numero, :id, :barbearium_id)
     end
 end
