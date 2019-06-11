@@ -69,6 +69,6 @@ class BarbeariaController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def barbearium_params
-      params.require(:barbearium).permit(:nome, :contato, :user_id, :id, :endereco_id)
+      params.require(:barbearium).permit(:nome, :contato, :usuario_id, :id, :endereco_id)
     end
 end
