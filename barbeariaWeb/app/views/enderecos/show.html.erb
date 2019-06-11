@@ -20,6 +20,11 @@
   <%= @endereco.id %>
 </p>
 
+<p>
+  <strong>Barbearia:</strong>
+  <%= @endereco.barbearium_id %>
+</p>
+
 <%= link_to 'Edit', edit_endereco_path(@endereco) %> |
 <%= link_to 'Back', enderecos_path %> |
 <%= link_to 'Destroy', @endereco, method: :delete, data: { confirm: 'Are you sure?' } %>

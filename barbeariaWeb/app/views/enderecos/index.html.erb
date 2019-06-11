@@ -9,6 +9,7 @@
       <th>Bairro</th>
       <th>Numero</th>
       <th>Id</th>
+      <th>Barbearia</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,6 +21,7 @@
         <td><%= endereco.bairro %></td>
         <td><%= endereco.numero %></td>
         <td><%= endereco.id %></td>
+        <td><%= endereco.barbearium_id %></td>
         <td><%= link_to 'Show', endereco %></td>
         <td><%= link_to 'Edit', edit_endereco_path(endereco) %></td>
         <td><%= link_to 'Destroy', endereco, method: :delete, data: { confirm: 'Are you sure?' } %></td>
