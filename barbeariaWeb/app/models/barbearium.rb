@@ -4,5 +4,6 @@ class Barbearium < ApplicationRecord
 
   has_one :endereco#, autosave => true, :validate => true
   belongs_to :usuario
+  has_many :produtos
 
 end
