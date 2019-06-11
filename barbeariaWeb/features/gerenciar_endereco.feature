@@ -22,6 +22,6 @@ Feature: Gerenciar um endereco
     Then Eu vejo que houve um erro na criacao do 'endereco'
 
   Scenario: Remover um endereco
-    Given Estou na pagina de visualizacao do endereco de rua 'Jose Marques', bairro 'Magano', numero '93'
+    Given Estou na pagina de visualizacao do endereco de rua 'Jose Marques', bairro 'Magano', numero '93', barbearia '1'
     When Eu deleto o 'endereco'
     Then Eu vejo uma mensagem de sucesso na remocao do 'Endereco'
