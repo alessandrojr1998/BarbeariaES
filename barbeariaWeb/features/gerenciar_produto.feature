@@ -22,6 +22,6 @@ Feature: Gerenciar um produto
     Then Eu vejo que houve um erro na criacao do 'produto'
 
   Scenario: Remover um produto
-    Given Estou na pagina de visualizacao do produto de nome 'Pente fino', descricao 'Pente para pentear cabelos lisos', valor '10,00', quantidade '8' e barbearia '1'
+    Given Estou na pagina de visualizacao do produto de nome 'Pente fino', descricao 'Pente para pentear cabelos lisos', valor '10.00', quantidade '8' e barbearia '1'
     When Eu deleto o 'produto'
     Then Eu vejo uma mensagem de sucesso na remocao do 'Produto'
