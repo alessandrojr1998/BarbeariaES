@@ -48,6 +48,7 @@ Given("Estou na pagina de visualizacao do endereco de rua {string}, bairro {stri
 end
 
 When("Eu deleto o {string}") do |string|
+  page.has_content?(string)
   click_link 'Destroy'
 end
 
