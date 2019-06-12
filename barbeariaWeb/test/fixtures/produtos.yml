@@ -2,8 +2,7 @@
 
 one:
   nome: MyString
-  sobrenome: MyString
-  cpf: MyString
-  senha: MyString
-  contato: MyString
-
+  descricao: MyString
+  valor: 1.5
+  quantidade: 1
+  barbearium_id: 1

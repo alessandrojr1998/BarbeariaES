@@ -10,7 +10,7 @@
       <th>Cpf</th>
       <th>Senha</th>
       <th>Contato</th>
-      <th>Id usuario</th>
+      <th>Id</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -23,7 +23,7 @@
         <td><%= usuario.cpf %></td>
         <td><%= usuario.senha %></td>
         <td><%= usuario.contato %></td>
-        <td><%= usuario.id_usuario %></td>
+        <td><%= usuario.id %></td>
         <td><%= link_to 'Show', usuario %></td>
         <td><%= link_to 'Edit', edit_usuario_path(usuario) %></td>
         <td><%= link_to 'Destroy', usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>

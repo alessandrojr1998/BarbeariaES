@@ -4,23 +4,24 @@ Feature: Gerenciar um endereco
   Scenario: Criar um endereco
     Given Estou na pagina de novo endereco
     When Eu crio um endereco com a rua 'Joao Sampaio', bairro 'Bela Vista', numero '85'
-    And Clico em criar endereco
-    Then Eu vejo uma tela com a mensagem de sucesso e os dados do endereco.
+    Then Eu vejo uma tela com a mensagem de sucesso e os dados do endereco
 
   Scenario: Criar um endereco com a rua em branco
     Given Estou na pagina de novo endereco
-    When Eu crio um endereco com a rua em branco, bairro 'Bela Vista', numero '85'
-    And Clico em criar endereco
-    Then Eu vejo que o endereco nao foi criado, pois a rua nao foi preenchida.
+    When Eu crio um endereco com a rua '', bairro 'Bela Vista', numero '85'
+    Then Eu vejo que houve um erro na criacao do 'endereco'
 
   Scenario: Criar um endereco com o bairro em branco
     Given Estou na pagina de novo endereco
-    When Eu crio um endereco com a rua 'Joao Sampaio', bairro em branco, numero '85'
-    And Clico em criar endereco
-    Then Eu vejo que o endereco nao foi criado, pois o bairro nao foi preenchido.
+    When Eu crio um endereco com a rua 'Joao Sampaio', bairro '', numero '85'
+    Then Eu vejo que houve um erro na criacao do 'endereco'
 
   Scenario: Criar um endereco com o numero em branco
     Given Estou na pagina de novo endereco
-    When Eu crio um endereco com a rua 'Joao Sampaio', bairro 'Bela Vista', numero em branco
-    And Clico em criar endereco
-    Then Eu vejo que o endereco nao foi criado, pois o numero nao foi preenchido.
+    When Eu crio um endereco com a rua 'Joao Sampaio', bairro 'Bela Vista', numero ''
+    Then Eu vejo que houve um erro na criacao do 'endereco'
+
+  Scenario: Remover um endereco
+    Given Estou na pagina de visualizacao do endereco de rua 'Jose Marques', bairro 'Magano', numero '93', barbearia '1'
+    When Eu deleto o 'endereco'
+    Then Eu vejo uma mensagem de sucesso na remocao do 'Endereco'

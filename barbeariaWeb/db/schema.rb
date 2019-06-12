@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190528030108) do
+ActiveRecord::Schema.define(version: 20190611032619) do
 
   create_table "barbearia", force: :cascade do |t|
     t.string "nome"
     t.string "contato"
-    t.integer "user_id"
     t.integer "endereco_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["endereco_id"], name: "index_barbearia_on_endereco_id"
+    t.integer "usuario_id"
+    t.index ["usuario_id"], name: "index_barbearia_on_usuario_id"
   end
 
   create_table "enderecos", force: :cascade do |t|
@@ -28,9 +28,22 @@ ActiveRecord::Schema.define(version: 20190528030108) do
     t.integer "numero"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "barbearium_id"
+    t.index ["barbearium_id"], name: "index_enderecos_on_barbearium_id"
   end
 
-  create_table "usuarios", primary_key: "id_usuario", force: :cascade do |t|
+  create_table "produtos", force: :cascade do |t|
+    t.string "nome"
+    t.string "descricao"
+    t.float "valor"
+    t.integer "quantidade"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "barbearium_id"
+    t.index ["barbearium_id"], name: "index_produtos_on_barbearium_id"
+  end
+
+  create_table "usuarios", force: :cascade do |t|
     t.string "nome"
     t.string "sobrenome"
     t.string "cpf"

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :produtos
   resources :enderecos
   resources :barbearia
   resources :usuarios

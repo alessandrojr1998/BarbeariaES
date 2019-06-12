@@ -11,8 +11,8 @@
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @barbearium.user_id %>
+  <strong>Usuario:</strong>
+  <%= @barbearium.usuario_id %>
 </p>
 
 <p>
@@ -26,4 +26,6 @@
 </p>
 
 <%= link_to 'Edit', edit_barbearium_path(@barbearium) %> |
-<%= link_to 'Back', barbearia_path %>
+<%= link_to 'Back', barbearia_path %> |
+<%= link_to 'Destroy', @barbearium, method: :delete, data: { confirm: 'Are you sure?' } %>
+
