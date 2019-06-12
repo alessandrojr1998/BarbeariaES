@@ -17,7 +17,10 @@ class EnderecosControllerTest < ActionDispatch::IntegrationTest
 
   test "should create endereco" do
     assert_difference('Endereco.count') do
-      post enderecos_url, params: { endereco: { bairro: @endereco.bairro, id: @endereco.id, numero: @endereco.numero, rua: @endereco.rua } }
+      post enderecos_url, params: { endereco: { bairro: @endereco.bairro,
+                                                numero: @endereco.numero,
+                                                rua: @endereco.rua,
+                                                barbearium_id: @endereco_id.barbearium_id} }
     end
 
     assert_redirected_to endereco_url(Endereco.last)
@@ -34,7 +37,10 @@ class EnderecosControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update endereco" do
-    patch endereco_url(@endereco), params: { endereco: { bairro: @endereco.bairro, id: @endereco.id, numero: @endereco.numero, rua: @endereco.rua } }
+    patch endereco_url(@endereco), params: { endereco: { bairro: @endereco.bairro,
+                                                         numero: @endereco.numero,
+                                                         rua: @endereco.rua,
+                                                         barbearium_id: @endereco_id.barbearium_id} }
     assert_redirected_to endereco_url(@endereco)
   end
 

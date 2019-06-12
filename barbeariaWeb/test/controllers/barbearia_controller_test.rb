@@ -17,7 +17,10 @@ class BarbeariaControllerTest < ActionDispatch::IntegrationTest
 
   test "should create barbearium" do
     assert_difference('Barbearium.count') do
-      post barbearia_url, params: { barbearium: { contato: @barbearium.contato, endereco_id: @barbearium.endereco_id, id: @barbearium.id, nome: @barbearium.nome, user_id: @barbearium.user_id } }
+      post barbearia_url, params: { barbearium: { contato: @barbearium.contato,
+                                                  endereco_id: @barbearium.endereco_id,
+                                                  nome: @barbearium.nome,
+                                                  usuario_id: @barbearium.usuario_id } }
     end
 
     assert_redirected_to barbearium_url(Barbearium.last)
@@ -34,7 +37,10 @@ class BarbeariaControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update barbearium" do
-    patch barbearium_url(@barbearium), params: { barbearium: { contato: @barbearium.contato, endereco_id: @barbearium.endereco_id, id: @barbearium.id, nome: @barbearium.nome, user_id: @barbearium.user_id } }
+    patch barbearium_url(@barbearium), params: { barbearium: { contato: @barbearium.contato,
+                                                               endereco_id: @barbearium.endereco_id,
+                                                               nome: @barbearium.nome,
+                                                               usuario_id: @barbearium.usuario_id } }
     assert_redirected_to barbearium_url(@barbearium)
   end
 

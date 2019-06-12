@@ -4,10 +4,5 @@ one:
   rua: MyString
   bairro: MyString
   numero: 1
-  id: 1
+  barbearium_id: 1
 
-two:
-  rua: MyString
-  bairro: MyString
-  numero: 1
-  id: 1

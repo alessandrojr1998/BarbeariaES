@@ -6,12 +6,4 @@ one:
   cpf: MyString
   senha: MyString
   contato: MyString
-  id_usuario: 1
 
-two:
-  nome: MyString
-  sobrenome: MyString
-  cpf: MyString
-  senha: MyString
-  contato: MyString
-  id_usuario: 1
