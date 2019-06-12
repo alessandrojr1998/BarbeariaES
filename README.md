@@ -19,4 +19,6 @@ O projeto se trata da criação de um sistema de gerenciamento para barbearia. O
 
 > localhost:3000/enderecos
 
-> localhost:3000/barbeiro
+> localhost:3000/barbearia
+
+> localhost:300/produtos
