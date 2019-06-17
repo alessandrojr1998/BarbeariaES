@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20190611032619) do
   create_table "barbearia", force: :cascade do |t|
     t.string "nome"
     t.string "contato"
+    t.integer "user_id"
     t.integer "endereco_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -43,7 +44,7 @@ ActiveRecord::Schema.define(version: 20190611032619) do
     t.index ["barbearium_id"], name: "index_produtos_on_barbearium_id"
   end
 
-  create_table "usuarios", force: :cascade do |t|
+  create_table "usuarios", primary_key: "id_usuario", force: :cascade do |t|
     t.string "nome"
     t.string "sobrenome"
     t.string "cpf"
