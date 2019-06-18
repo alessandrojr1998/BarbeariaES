@@ -12,13 +12,11 @@ When("Eu crio uma conta com nome {string}, sobrenome {string}, cpf {string}, sen
   click_button 'Create Usuario'
 end
 
-Then("Eu vejo uma tela com a mensagem de sucesso e meus dados de novo usuario.") do
-  page.has_content?('Usuario was successfully created.')
+Then("Eu vejo uma tela com a mensagem de sucesso na criacao") do
+  page.has_content?('successfully created.')
 end
 
-#Endereco
-
-Given("Estou na pagina de novo endereco") do
+Given("Estou na pagina de criar um novo endereco") do
   visit '/enderecos/new'
   expect(page).to have_current_path('/enderecos/new')
 end
@@ -30,12 +28,8 @@ When("Eu crio um endereco com a rua {string}, bairro {string}, numero {string}")
   click_button 'Create Endereco'
 end
 
-Then("Eu vejo uma tela com a mensagem de sucesso e os dados do endereco") do
-  page.has_content?('Endereco was successfully created.')
-end
-
-Then("Eu vejo que houve um erro na criacao do {string}") do |string|
-  page.has_content?('1 error prohibited this '+ string + ' from being saved:')
+Then("Eu vejo que houve um erro na criacao") do
+  page.has_content?('error prohibited')
 end
 
 Given("Estou na pagina de visualizacao do endereco de rua {string}, bairro {string}, numero {string}, barbearia {string}") do |rua, bairro, numero, barbearium_id|
@@ -47,18 +41,15 @@ Given("Estou na pagina de visualizacao do endereco de rua {string}, bairro {stri
   click_button 'Create Endereco'
 end
 
-When("Eu deleto o {string}") do |string|
-  page.has_content?(string)
+When("Eu efetuo a remocao") do
   click_link 'Destroy'
 end
 
-Then("Eu vejo uma mensagem de sucesso na remocao do {string}") do |string|
-  page.has_content?(string + ' was successfully destroyed.')
+Then("Eu vejo uma mensagem de sucesso na remocao") do
+  page.has_content?('successfully destroyed.')
 end
 
-#Barbearia
-
-Given("Estou na pagina de nova barbearia") do
+Given("Estou na pagina de criar uma nova barbearia") do
   visit '/barbearia/new'
   expect(page).to have_current_path('/barbearia/new')
 end
@@ -71,14 +62,7 @@ When("Eu crio uma barbearia com nome {string}, contato {string}, usuario {string
   click_button 'Create Barbearium'
 end
 
-
-Then("Eu vejo uma tela com a mensagem de sucesso e os dados da barbearia.") do
-  page.has_content?('Barbearium was successfully created.')
-end
-
-#Produtos
-
-Given("Estou na pagina de novo produto") do
+Given("Estou na pagina de criar um novo produto") do
   visit '/produtos/new'
   expect(page).to have_current_path('/produtos/new')
 end
@@ -90,10 +74,6 @@ When("Eu crio um produto com nome {string}, descricao {string}, valor {string}, 
   fill_in 'produto[quantidade]', :with => quantidade
   fill_in 'produto[barbearium_id]', :with => barbearia
   click_button 'Create Produto'
-end
-
-Then("Eu vejo uma tela com a mensagem de sucesso e os dados do produto.") do
-  page.has_content?('Produto was successfully created.')
 end
 
 Given("Estou na pagina de visualizacao do produto de nome {string}, descricao {string}, valor {string}, quantidade {string} e barbearia {string}") do |nome, descricao, valor, quantidade, barbearium_id|
