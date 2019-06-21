@@ -1,5 +1,11 @@
 Given("Estou na pagina de novo usuario") do
+  visit '/users/sign_in'
+  fill_in 'user[email]', :with => 'ale@jun.com'
+  fill_in 'user[password]', :with => '123456'
+  click_button 'Log in'
+
   visit '/usuarios/new'
+
   expect(page).to have_current_path('/usuarios/new')
 end
 
@@ -17,6 +23,11 @@ Then("Eu vejo uma tela com a mensagem de sucesso na criacao") do
 end
 
 Given("Estou na pagina de criar um novo endereco") do
+  visit '/users/sign_in'
+  fill_in 'user[email]', :with => 'ale@jun.com'
+  fill_in 'user[password]', :with => '123456'
+  click_button 'Log in'
+
   visit '/enderecos/new'
   expect(page).to have_current_path('/enderecos/new')
 end
@@ -33,6 +44,11 @@ Then("Eu vejo que houve um erro na criacao") do
 end
 
 Given("Estou na pagina de visualizacao do endereco de rua {string}, bairro {string}, numero {string}, barbearia {string}") do |rua, bairro, numero, barbearium_id|
+  visit '/users/sign_in'
+  fill_in 'user[email]', :with => 'ale@jun.com'
+  fill_in 'user[password]', :with => '123456'
+  click_button 'Log in'
+
   visit 'enderecos/new'
   fill_in 'endereco[rua]', :with => rua
   fill_in 'endereco[bairro]', :with => bairro
@@ -50,6 +66,11 @@ Then("Eu vejo uma mensagem de sucesso na remocao") do
 end
 
 Given("Estou na pagina de criar uma nova barbearia") do
+  visit '/users/sign_in'
+  fill_in 'user[email]', :with => 'ale@jun.com'
+  fill_in 'user[password]', :with => '123456'
+  click_button 'Log in'
+
   visit '/barbearia/new'
   expect(page).to have_current_path('/barbearia/new')
 end
@@ -63,6 +84,11 @@ When("Eu crio uma barbearia com nome {string}, contato {string}, usuario {string
 end
 
 Given("Estou na pagina de criar um novo produto") do
+  visit '/users/sign_in'
+  fill_in 'user[email]', :with => 'ale@jun.com'
+  fill_in 'user[password]', :with => '123456'
+  click_button 'Log in'
+
   visit '/produtos/new'
   expect(page).to have_current_path('/produtos/new')
 end
@@ -77,6 +103,11 @@ When("Eu crio um produto com nome {string}, descricao {string}, valor {string}, 
 end
 
 Given("Estou na pagina de visualizacao do produto de nome {string}, descricao {string}, valor {string}, quantidade {string} e barbearia {string}") do |nome, descricao, valor, quantidade, barbearium_id|
+  visit '/users/sign_in'
+  fill_in 'user[email]', :with => 'ale@jun.com'
+  fill_in 'user[password]', :with => '123456'
+  click_button 'Log in'
+
   visit '/produtos/new'
   fill_in 'produto[nome]', :with => nome
   fill_in 'produto[descricao]', :with => descricao
