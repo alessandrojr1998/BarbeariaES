@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BarbeariaWeb</title>
+    <title>Barbearia Teste</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -16,7 +16,7 @@
 
   <p class="navbar-text pull-right">
     <% if user_signed_in? %>
-      Logged in as <strong><%= current_user.email %></strong>.
+      Logado com a conta: <strong><%= current_user.email %></strong>.
       <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
       <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
     <% else %>
@@ -25,8 +25,6 @@
     <% end %>
   </p>
 
-  <ul class="nav">
-    <li class="active"><a href="/ideas">Ideas</a></li>
-  </ul>
+
 
 </html>
