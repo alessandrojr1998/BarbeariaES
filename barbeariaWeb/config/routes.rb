@@ -15,13 +15,17 @@ Rails.application.routes.draw do
   #devise_for :admins, controllers: { sessions: "devise#sessions", registrations: "devise#registrations" }, path_names: devise_path_names #-> url.com/admins/login
   devise_scope :user do
     get 'users/login',  to: 'users#sessions#new',  as: 'user_login'
-    resources :produtos
-    resources :enderecos
-    resources :barbearia
+    #resources :produtos
+    #resources :enderecos
+    #resources :barbearia
   end
 
   devise_scope :admin do
     get 'admins/login',  to: 'admins#sessions#new', as: 'admin_login'
+    delete 'admins/logout', to: 'devise/sessions#destroy', as: 'admin_logout'
+    resources :produtos
+    resources :enderecos
+    resources :barbearia
 
   end
   #root :to => "home#index"
