@@ -63,12 +63,12 @@ class BarbeariaController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_barbearium
-      @barbearium = Barbearium.find(params[:id])
-    end
+  def set_barbearium
+    @barbearium = Barbearium.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def barbearium_params
-      params.require(:barbearium).permit(:nome, :contato, :usuario_id, :id, :endereco_id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def barbearium_params
+    params.require(:barbearium).permit(:nome, :contato, :usuario_id, :id, :endereco_id)
+  end
 end
