@@ -18,6 +18,9 @@ Rails.application.routes.draw do
     #resources :produtos
     #resources :enderecos
     #resources :barbearia
+     root :to => "home#index"
+     get 'sobre', to: 'home#sobre'
+     get 'contato', to: 'home#contato'
   end
 
   devise_scope :admin do
@@ -26,14 +29,15 @@ Rails.application.routes.draw do
     resources :produtos
     resources :enderecos
     resources :barbearia
-
+    root :to => "home#index"
+    get 'sobre', to: 'home#sobre'
+    get 'contato', to: 'home#contato'
   end
   #root :to => "home#index"
   #Usados de acordo com seus controllers
   #devise_for :users, path: 'users', controllers: { sessions: "users/sessions" etc....}
 
-  #get 'sobre', to: 'home#sobre'
- # get 'contato', to: 'home#contato'
+
 
 end
 
