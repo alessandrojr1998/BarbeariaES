@@ -1,5 +1,5 @@
 Given("Estou na pagina de novo usuario") do
-  visit '/users/sign_in'
+  visit '/users/login'
   fill_in 'user[email]', :with => 'ale@jun.com'
   fill_in 'user[password]', :with => '123456'
   click_button 'Log in'
@@ -23,7 +23,7 @@ Then("Eu vejo uma tela com a mensagem de sucesso na criacao") do
 end
 
 Given("Estou na pagina de criar um novo endereco") do
-  visit '/users/sign_in'
+  visit '/users/login'
   fill_in 'user[email]', :with => 'ale@jun.com'
   fill_in 'user[password]', :with => '123456'
   click_button 'Log in'
@@ -44,7 +44,7 @@ Then("Eu vejo que houve um erro na criacao") do
 end
 
 Given("Estou na pagina de visualizacao do endereco de rua {string}, bairro {string}, numero {string}, barbearia {string}") do |rua, bairro, numero, barbearium_id|
-  visit '/users/sign_in'
+  visit '/users/login'
   fill_in 'user[email]', :with => 'ale@jun.com'
   fill_in 'user[password]', :with => '123456'
   click_button 'Log in'
@@ -66,11 +66,29 @@ Then("Eu vejo uma mensagem de sucesso na remocao") do
 end
 
 Given("Estou na pagina de criar uma nova barbearia") do
-  visit '/users/sign_in'
+
+  visit '/users/register'
   fill_in 'user[email]', :with => 'ale@jun.com'
   fill_in 'user[password]', :with => '123456'
-  click_button 'Log in'
+  fill_in 'user[password_confirmation]', :with => '123456'
+  click_button 'Sign up'
 
+
+
+  if page.has_content?('Password confirmation')
+    visit '/users/login'
+    fill_in 'user[email]', :with => 'ale@jun.com'
+    fill_in 'user[password]', :with => '123456'
+    click_button 'Log in'
+  end
+  visit '/usuarios/new'
+
+  fill_in 'usuario[nome]', :with => 'João'
+  fill_in 'usuario[sobrenome]', :with => 'Silva'
+  fill_in 'usuario[cpf]', :with => '52635899941'
+  fill_in 'usuario[senha]', :with => '152634'
+  fill_in 'usuario[contato]', :with => '53695248532'
+  click_button 'Create Usuario'
   visit '/barbearia/new'
   expect(page).to have_current_path('/barbearia/new')
 end
@@ -84,7 +102,7 @@ When("Eu crio uma barbearia com nome {string}, contato {string}, usuario {string
 end
 
 Given("Estou na pagina de criar um novo produto") do
-  visit '/users/sign_in'
+  visit '/users/login'
   fill_in 'user[email]', :with => 'ale@jun.com'
   fill_in 'user[password]', :with => '123456'
   click_button 'Log in'
@@ -103,12 +121,30 @@ When("Eu crio um produto com nome {string}, descricao {string}, valor {string}, 
 end
 
 Given("Estou na pagina de visualizacao do produto de nome {string}, descricao {string}, valor {string}, quantidade {string} e barbearia {string}") do |nome, descricao, valor, quantidade, barbearium_id|
-  visit '/users/sign_in'
+
+  visit '/users/login'
   fill_in 'user[email]', :with => 'ale@jun.com'
   fill_in 'user[password]', :with => '123456'
   click_button 'Log in'
 
+  visit '/usuarios/new'
+
+  fill_in 'usuario[nome]', :with => 'João'
+  fill_in 'usuario[sobrenome]', :with => 'Silva'
+  fill_in 'usuario[cpf]', :with => '52635899941'
+  fill_in 'usuario[senha]', :with => '152634'
+  fill_in 'usuario[contato]', :with => '53695248532'
+  click_button 'Create Usuario'
+
+  visit '/barbearia/new'
+  fill_in 'barbearium[nome]', :with => 'Barb'
+  fill_in 'barbearium[contato]', :with => '8186594875'
+  fill_in 'barbearium[usuario_id]', :with => '1'
+  fill_in 'barbearium[endereco_id]', :with => '1'
+  click_button 'Create Barbearium'
+
   visit '/produtos/new'
+
   fill_in 'produto[nome]', :with => nome
   fill_in 'produto[descricao]', :with => descricao
   fill_in 'produto[valor]', :with => valor
