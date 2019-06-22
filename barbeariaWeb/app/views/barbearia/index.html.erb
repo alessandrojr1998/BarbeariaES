@@ -22,9 +22,15 @@
         <td><%= barbearium.usuario_id %></td>
         <td><%= barbearium.id %></td>
         <td><%= barbearium.endereco_id %></td>
+
+        <% if user_signed_in? %>
+        <td><%= link_to 'Show', barbearium %></td>
+        <td><%= link_to 'Marcar Horario', 'https://calendar.google.com/calendar/r?pli=1' %></td>
+        <% else %>
         <td><%= link_to 'Show', barbearium %></td>
         <td><%= link_to 'Edit', edit_barbearium_path(barbearium) %></td>
         <td><%= link_to 'Destroy', barbearium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
         <td colspan="5"></td>
       </tr>
     <% end %>

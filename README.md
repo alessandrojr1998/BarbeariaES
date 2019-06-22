@@ -15,10 +15,14 @@ O projeto se trata da criação de um sistema de gerenciamento para barbearia. O
 
 ## Rotas para teste
 
+> localhost:3000/admins/login
+
+> localhost:3000/users/login
+
 > localhost:3000/usuarios
 
 > localhost:3000/enderecos
 
 > localhost:3000/barbearia
 
-> localhost:300/produtos
+> localhost:300/produto
