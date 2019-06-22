@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 20190621022558) do
   create_table "barbearia", force: :cascade do |t|
     t.string "nome"
     t.string "contato"
-    t.integer "user_id"
     t.integer "endereco_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -68,7 +67,7 @@ ActiveRecord::Schema.define(version: 20190621022558) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "usuarios", primary_key: "id_usuario", force: :cascade do |t|
+  create_table "usuarios", force: :cascade do |t|
     t.string "nome"
     t.string "sobrenome"
     t.string "cpf"
